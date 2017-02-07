@@ -9,5 +9,18 @@ class PhotosController < ApplicationController
     @photo_caption = Photo.find(@photo_id).caption
   end
 
+  def new_form
+
+  end
+
+  def create_row
+    n = Photo.new
+    n.source = params[:the_source]
+    n.caption = params[:the_caption]
+    n.save
+
+    redirect_to("/photos")
+  end
+
 
 end
