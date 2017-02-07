@@ -43,6 +43,6 @@ class PhotosController < ApplicationController
     n.caption = params[:new_caption]
     n.save
 
-    redirect_to("/photos")
+    redirect_to("/photos/#{@edit_id}")
   end
 end
