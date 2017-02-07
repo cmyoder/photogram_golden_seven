@@ -29,4 +29,20 @@ class PhotosController < ApplicationController
 
     redirect_to("/photos")
   end
+
+  def edit_form
+    @id_to_edit = params[:id]
+    @old_url = Photo.find(@id_to_edit).source
+    @old_caption = Photo.find(@id_to_edit).caption
+  end
+
+  def update_row
+    @edit_id = params[:id]
+    n = Photo.find(@edit_id)
+    n.source = params[:new_source]
+    n.caption = params[:new_caption]
+    n.save
+
+    redirect_to("/photos")
+  end
 end
